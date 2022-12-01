@@ -35,7 +35,9 @@ Destek vektör makineleri genellikle sınıflandırma problemlerinde kullanılan
 
 ### Destek Vektör Makinelerinin Çalışma Mantığı Nedir?
 DVM algoritmasının amacı, gelecekte yeni veri noktasını doğru kategoriye kolayca yerleştirebilmemiz için n-boyutlu uzayı sınıflara ayırabilecek en iyi çizgiyi veya karar sınırını oluşturmaktır.
+
 ![](https://miro.medium.com/max/640/1*OGs3M3e9zPDfRaVx2BRoPg.png)
+
 Sınıflandırmayı yapabilmek için iki sınıfı ayıran bir doğru çizilir ve bu doğrunun ±1'i arasında kalan yeşil bölgeye Margin adı verilir. Margin ne kadar geniş ise iki veya daha fazla sınıf o kadar iyi ayrıştırılır.
 
 #### Formül İle Gösterimi
