@@ -93,20 +93,28 @@ SVM algoritmaları, çekirdek olarak tanımlanan bir dizi matematiksel fonksiyon
 Farklı SVM algoritmaları, farklı türde çekirdek fonksiyonları kullanır.
 1) Polynomial Kernel Function
 * Polinom çekirdeği, birden fazla dereceye sahip çekirdeklerin genel bir temsilidir. Görüntü işleme için kullanışlıdır.
- * d parametresine sahiptir. d parametresi polinom derecesini ifade eder. Polinom çekirdeği, polinomun derecesi olan d'yi ayarlayarak boyutları sistematik olarak artırır.
+* Polinom çekirdeği, genellikle tüm eğitim verilerinin normalleştirildiği
+problemler için uygundur.
+* d parametresine sahiptir. d parametresi polinom derecesini ifade eder. Polinom çekirdeği, polinomun derecesi olan d'yi ayarlayarak boyutları sistematik olarak artırır.
 >  $$(a x b + r)^d$$ 
-
 2) Gaussian RBF Kernel Function
 * RBF, radyal tabanlı fonksiyondur. Veriler hakkında önceden bilgi olmadığında kullanılır
 * Radyal çekirdek, sonsuz boyutlarda destek vektör sınıflandırıcısını bulur.
 * En yakın gözlemlerin yeni gözlemleri nasıl sınıflandıracağımız üzerinde çok fazla etkisi vardır ve daha uzaktaki gözlemlerin sınıflandırma üzerinde nispeten az etkisi vardır.
 > K(xi,xj) = exp(-γ||xi – xj||)$$^2$$
 3) Sigmoid Kernel Function
+* Esas olarak sinir ağlarında kullanılır.
+* Sigmoid çekirdek fonksiyonu birçok uygulamada iyi performans göstermektedir. Sigmoid çekirdeğinde α eğim ve c kesme sabiti olmak üzere iki ayarlanabilir parametresi vardır.
 4) Linear Kernel Function
+* Bu çekirdek tek boyutludur ve SVM'deki en temel çekirdek biçimidir.
 5) Hyperbolic Tangent Kernel Function
+* Sinir ağlarında kullanılır.
 6) Graph Kernel Function
+* Bu çekirdek, grafiklerin içini hesaplamak için kullanılır. Grafik çiftleri arasındaki benzerliği ölçerler. Biyoinformatik , kemoinformatik vb . alanlarda katkıda bulunurlar .
 7) String Kernel Function
+* Bu çekirdek, diziler temelinde çalışır. Daha çok metin sınıflandırma gibi alanlarda kullanılır . Metin madenciliğinde, genom analizinde vb. çok faydalıdırlar.
 8) Tree Kernel Function
+* Bu çekirdek daha çok ağaç yapısıyla ilişkilidir. Çekirdek, verileri ağaç formatına ayırmaya yardımcı olur ve SVM'nin bunlar arasında ayrım yapmasına yardımcı olur. Bu, dil sınıflandırmasında yardımcı olur ve NLP gibi alanlarda kullanılır.
 
 ### Çekirdek Hilesi
 Dönüşüm gerçekleştirmeye gerek duymadan sadece girdi uzayındaki vektörlerin iç çarpımını kullanarak işlem yapılabilmektedir. Bu işlem kestirmeden bir sonuç sağladığı için çekirdek hilesi olarak ifade edilmektedir.Çekirdek hilesi, matematikten kaçınarak SVM için gereken hesaplama miktarını azaltır, verileri düşükten yüksek boyutlara dönüştürür.
