@@ -1,30 +1,82 @@
 # Makine Öğrenmesine Giriş Dersi Ödev Raporu
-## Destek Vektör Makineleri
-## İçindekiler
-* Destek Vektör Makineleri Nedir?
-* Çalışma Mantığı Nedir?
-* Kullanım Alanları
-* Örnekleri
 
-## Tarihi
+## İçindekiler
+* Denetimli Öğrenme
+    - Sınıflandırma
+* Destek Vektör Makineleri
+    - DVM Tarihi
+    - DVM Nedir?
+    - DVM Çalışma Mantığı Nedir?
+        - Hiperdüzlem ve Destek Vektörleri
+        - Keskin Kenar Payı Yaklaşımı
+        - Esnek Kenar Payı Yaklaşımı
+    - Avantajları Ve Dezavantajları
+* Doğrusal Ve Doğrusal Olmayan DVM
+    - Doğrusal DVM
+    - Doğrusal Olmayan DVM
+    - Çekirdek Fonksiyonları
+    - Çekirdek Hilesi
+* Kullanım Alanları Ve Örnekleri
+* Kaynakça
+
+## Denetimli Öğrenme
+Denetimli öğrenme, makine öğrenme uygulamalarında çok sık kullanılan yöntemlerden birisidir. Giriş-çıkış verileri arasında kesin bir bağıntının olduğu veriler için yaygın olarak kullanılan yöntemlerdendir. Bu yöntemde kullanılan verilerin tümünün etiketli veri olması gerekmektedir. Eğitim aşamasında, bu etiketli verilerin büyük bir kısmı sistemi eğitmek, diğerleri de test etmek için kullanılır. Denetimli öğrenme modelleri, temel olarak sınıflandırma ve regresyon uygulamalarında kullanılmaktadır.
+
+### Sınıflandırma
+Genel olarak veri setindeki verileri, önceden belirlenen etiketlere uygun olarak ayrılması işlemine sınıflandırma denilmektedir. Destek vektör makineleri de sınıflandırma algoritmalarından biridir.
+
+## Destek Vektör Makineleri
+
+### Tarihi
 1963 yılında Vladimir Vapnik ve Alexey Chervonenkis tarafından temelleri atılan “Destek Vektör Makineleri (DVM)” istatiksel öğrenme teorisine dayalı bir gözetimli öğrenme algoritmasıdır. Her ne kadar temelleri 60'lı yıllara dayansada 1995 yılında Vladir Vapnik, Berhard Boser ve Isabelle Guyon tarafından geliştirilmiştir.
 
-## Destek Vektör Makineleri Nedir?
+### Destek Vektör Makineleri Nedir?
 Destek vektör makineleri genellikle sınıflandırma problemlerinde kullanılan gözetimli öğrenme yöntemlerinden biridir. Hem doğrusal hem de doğrusal olmayan sınıflandırma işlemlerini gerçekleştirilebilmektedir. Destek vektör makinesi, eğitim verilerindeki herhangi bir noktadan en uzak olan iki sınıf arasında bir karar sınırı bulan vektör uzayı tabanlı makine öğrenme yöntemi olarak tanımlanabilir.
 
-## Destek Vektör Makinelerinin Çalışma Mantığı Nedir?
+### Destek Vektör Makinelerinin Çalışma Mantığı Nedir?
+DVM algoritmasının amacı, gelecekte yeni veri noktasını doğru kategoriye kolayca yerleştirebilmemiz için n-boyutlu uzayı sınıflara ayırabilecek en iyi çizgiyi veya karar sınırını oluşturmaktır.
+![](https://miro.medium.com/max/640/1*OGs3M3e9zPDfRaVx2BRoPg.png)
+Sınıflandırmayı yapabilmek için iki sınıfı ayıran bir doğru çizilir ve bu doğrunun ±1'i arasında kalan yeşil bölgeye Margin adı verilir. Margin ne kadar geniş ise iki veya daha fazla sınıf o kadar iyi ayrıştırılır.
 
-### Keskin Kenar Payı Yaklaşımı:
+#### Formül İle Gösterimi
+![](https://miro.medium.com/max/640/1*vFJs39qUz-VIuanwxCqPcg.png)
+> w; ağırlık vektörü
+> x; girdi vektörü
+> b; sapmadır 
+
+#### DVM Algoritmasında Hiperdüzlem ve Destek Vektörleri:
+Hiperdüzlem : n-boyutlu uzayda sınıfları ayırmak için birden fazla çizgi/karar sınırı olabilir. Ancak veri noktalarını sınıflandırmaya yardımcı olan en iyi karar sınırını bulmamız gerekir. Bu en iyi sınır, SVM'nin hiper düzlemi olarak bilinir. Her zaman, veri noktaları arasındaki maksimum mesafe anlamına gelen maksimum kenar boşluğuna sahip bir hiper düzlem oluştururuz. 
+Destek Vektörleri : Hiper düzleme en yakın olan ve hiper düzlemin konumunu etkileyen veri noktaları veya vektörler, Destek Vektörü olarak adlandırılır. Bu vektörler hiperdüzlemi desteklediği için Destek vektörü olarak adlandırılır.
+![](https://static.javatpoint.com/tutorial/machine-learning/images/support-vector-machine-algorithm.png)
+
+
+#### Keskin Kenar Payı Yaklaşımı:
 Keskin kenar payı yaklaşımı aykırı değerlere karşı çok duyarlıdır. 
 
-### Esnek Kenar Payı Yaklaşımı:
+#### Esnek Kenar Payı Yaklaşımı:
 Esnek kenar payı yaklaşımı, keskin kenar payındaki gibi sıfır sınıflandırma hatası yerine bazı örneklerin karşı sınıfta yer almasına izin verme mantığına dayanır.Esnek kenar payı kullanılarak yapılan sınıflandırmada kenar payının çok artması hatalı sınıflandırılan örnek sayısını arttırır.En iyi sınıflandırmayı elde etmek için Esnek Sınır içinde kaç yanlış sınıflandırma ve gözleme izin verileceğini belirlemek için Cross Validation kullanılabilir.
+
+![](https://miro.medium.com/max/640/1*yWtPGQrfiNDlcD0AJjdpiA.png)
+
+### DVM Avantajları
+* Yüksek boyutlu uzaylarda etkilidir.
+* Boyut sayısının örnek sayısından fazla olduğu durumlarda yine etkilidir.
+* Karar fonksiyonunda (destek vektörleri olarak adlandırılır) eğitim noktalarının bir alt kümesini kullanır, dolayısıyla hafıza açısından da verimlidir.
+* Çok yönlü: karar fonksiyonu için farklı Kernel fonksiyonları belirtilebilir. Ortak çekirdekler sağlanır, ancak özel çekirdekler belirlemek de mümkündür.
+
+### DVM Dezavantajları
+* Öznitelik sayısı örnek sayısından çok fazlaysa, Kernel fonksiyonlarını seçerken aşırı uydurmadan kaçının.
+* DVM'ler doğrudan olasılık tahminleri sağlamaz, bunlar pahalı bir beş katlı çapraz doğrulama kullanılarak hesaplanır.
+
+## Doğrusal Ve Doğrusal Olmayan DVM
 
 ## Doğrusal DVM
 Doğrusal olarak ayrılabilen veriler için kullanılır.Bir veri kümesinin tek bir düz çizgi kullanılarak iki sınıfa ayrılabilmesidir.
 
 ## Doğrusal Olmayan DVM
 Veriler doğrusal olarak düzenlenmişse düz bir çizgi kullanarak ayırabiliriz, ancak veri setleri her zaman bir doğru ile ayırabileceğimiz formatta olmayabilir. Eğer doğrusal olmayan veri setlerini daha yüksek bir uzayda temsil edebilirsek bir düzlem vasıtasıyla örneklerimizi birbirinden ayırarak sınıflandırma yapabiliriz.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20200605170732/linearsep.png)
 
 ### Çekirdek Fonksiyonları
 Veri kümesinin doğrusal olarak sınıflandırılması mümkün olmayan durumlarda, her bir verinin üst özellik uzayıyla eşlenmesi ve yine bu yeni uzayda bir hiper düzlem yardımıyla sınıflandırılması yöntemine verilen isimdir.
@@ -33,9 +85,19 @@ SVM algoritmaları, çekirdek olarak tanımlanan bir dizi matematiksel fonksiyon
 * Karmaşık hesaplamalardan kaçınmak için kısayollar sağlarlar.
 * SVM'deki overfitting problemini çözmek için kullanışlıdırlar.
 
+![](https://vitalflux.com/wp-content/uploads/2020/07/Screenshot-2020-07-14-at-6.45.25-PM.png)
+
 Farklı SVM algoritmaları, farklı türde çekirdek fonksiyonları kullanır.
 1) Polynomial Kernel Function
+* Polinom çekirdeği, birden fazla dereceye sahip çekirdeklerin genel bir temsilidir. Görüntü işleme için kullanışlıdır.
+ * d parametresine sahiptir. d parametresi polinom derecesini ifade eder. Polinom çekirdeği, polinomun derecesi olan d'yi ayarlayarak boyutları sistematik olarak artırır.
+>  $$(a x b + r)^d$$ 
+
 2) Gaussian RBF Kernel Function
+* RBF, radyal tabanlı fonksiyondur. Veriler hakkında önceden bilgi olmadığında kullanılır
+* Radyal çekirdek, sonsuz boyutlarda destek vektör sınıflandırıcısını bulur.
+* En yakın gözlemlerin yeni gözlemleri nasıl sınıflandıracağımız üzerinde çok fazla etkisi vardır ve daha uzaktaki gözlemlerin sınıflandırma üzerinde nispeten az etkisi vardır.
+> K(xi,xj) = exp(-γ||xi – xj||)$$^2$$
 3) Sigmoid Kernel Function
 4) Linear Kernel Function
 5) Hyperbolic Tangent Kernel Function
@@ -46,22 +108,7 @@ Farklı SVM algoritmaları, farklı türde çekirdek fonksiyonları kullanır.
 ### Çekirdek Hilesi
 Dönüşüm gerçekleştirmeye gerek duymadan sadece girdi uzayındaki vektörlerin iç çarpımını kullanarak işlem yapılabilmektedir. Bu işlem kestirmeden bir sonuç sağladığı için çekirdek hilesi olarak ifade edilmektedir.Çekirdek hilesi, matematikten kaçınarak SVM için gereken hesaplama miktarını azaltır, verileri düşükten yüksek boyutlara dönüştürür.
 
-
-## DVM Avantajları
-•	Overfitting (aşırı öğrenme) sorunu olmaz
-•	Yüksek doğruluk
-•	Çok sayıda bağımsız değişkenler çalışabilir.
-•	Karmaşık sınırları modelleme
-•	Yüksek boyutlu uzaylarda etkilidirler.
-•	Boyut sayısının, örneklem sayısından fazla olduğu durumlarda etkilidirler.
-•	Karar fonksiyonunda bir takım eğitim noktaları kullanılır (“support vectors”). Dolayısıyla bellek verimli bir şekilde kullanılmış olur.
-•	Çok yönlü: Karar fonksiyonu için çok farklı çekirdek fonksiyonları (“kernel functions”) kullanılabilmektedir.
-
-## DVM Dezavantajları
-• Sınıf olasılığı üretememe.
-• Çekirdek fonksiyonları pozitif tanımlı sürekli fonksiyon olmalı.
-
-## DVM Kullanım Alanları
+## DVM Kullanım Alanları Ve Örnekleri
 ### Yüz Algılama : 
 Görüntünün bölümleri yüz ve yüz olmayan bölümler olarak sınıflandırılır. NxN boyutundaki bir görüntüde her bir piksel değeri yüz ve yüz olmayan bölümler olarak iki farklı etiketle etiketlenir. Bu veriler eğitim verilerini oluşturur. Sonrasında piksel parlaklığına göre yüzlerin etrafında bir karesel sınır oluşturulur ve her bir görüntü için aynı işlem tekrar edilerek, DVM ile sınıflandırma işlemleri gerçekleştirilir.
 ### Metin ve Köprü Metni Sınıflandırma : 
@@ -79,7 +126,9 @@ DVM'ler coğrafi (mekansal) ve mekansal-zamansal çevresel veri
 analizi ve modelleme işlemleri içinde kullanılmaktadır. Özellikle uydu görüntüleri üzerinden haritalama uygulamalarında da kullanılmaktadır. 
 
 ## Kaynakça
-
-
-
-
+* https://iksadyayinevi.com/wp-content/uploads/2020/12/MAKINE-OGRENMESINDE-TEORIDEN-ORNEK-MATLAB-UYGULAMALARINA-KADAR-DESTEK-VEKTOR-MAKINELERI.pdf
+* https://tr.wikipedia.org/wiki/Destek_vekt%C3%B6r_makinesi
+* https://scikit-learn.org/stable/modules/svm.html
+* https://medium.com/deep-learning-turkiye/nedir-bu-destek-vekt%C3%B6r-makineleri-makine-%C3%B6%C4%9Frenmesi-serisi-2-94e576e4223e
+* https://www.youtube.com/watch?v=yW-lwgpqyIU
+* https://www.youtube.com/watch?v=efR1C6CvhmE&t=12s
