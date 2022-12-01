@@ -49,6 +49,7 @@ Sınıflandırmayı yapabilmek için iki sınıfı ayıran bir doğru çizilir v
 #### DVM Algoritmasında Hiperdüzlem ve Destek Vektörleri:
 Hiperdüzlem : n-boyutlu uzayda sınıfları ayırmak için birden fazla çizgi/karar sınırı olabilir. Ancak veri noktalarını sınıflandırmaya yardımcı olan en iyi karar sınırını bulmamız gerekir. Bu en iyi sınır, SVM'nin hiper düzlemi olarak bilinir. Her zaman, veri noktaları arasındaki maksimum mesafe anlamına gelen maksimum kenar boşluğuna sahip bir hiper düzlem oluştururuz. 
 Destek Vektörleri : Hiper düzleme en yakın olan ve hiper düzlemin konumunu etkileyen veri noktaları veya vektörler, Destek Vektörü olarak adlandırılır. Bu vektörler hiperdüzlemi desteklediği için Destek vektörü olarak adlandırılır.
+
 ![](https://static.javatpoint.com/tutorial/machine-learning/images/support-vector-machine-algorithm.png)
 
 
