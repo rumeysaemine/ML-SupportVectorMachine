@@ -55,6 +55,7 @@ Sınıflandırmayı yapabilmek için iki sınıfı ayıran bir doğru çizilir v
 
 ![](https://static.javatpoint.com/tutorial/machine-learning/images/support-vector-machine-algorithm.png)
 
+**Marjin (Margin) :** En yakın gruba ait veri noktası ve hiper düzlem arasındaki mesafeleri en üst düzeye çıkarmak için doğru hiper düzlemi belirlememize yardımcı olan mesafe olarak ifadelendirilmektedir. Çeşitli çalışma durumlarında değerlerimiz-örneklerimiz marjinine göre farklı bölgelerde bulunabilir.
 
 #### Keskin Kenar Payı Yaklaşımı:
 Keskin kenar payı yaklaşımı aykırı değerlere karşı çok duyarlıdır. 
