@@ -10,6 +10,7 @@
         - Hiperdüzlem ve Destek Vektörleri
         - Keskin Kenar Payı Yaklaşımı
         - Esnek Kenar Payı Yaklaşımı
+        - Çok Sınıflı Verinin DVM İle Sınıflandırılması
     - Avantajları Ve Dezavantajları
 * Doğrusal Ve Doğrusal Olmayan DVM
     - Doğrusal DVM
@@ -61,6 +62,13 @@ Esnek kenar payı yaklaşımı, keskin kenar payındaki gibi sıfır sınıfland
 
 ![](https://miro.medium.com/max/640/1*yWtPGQrfiNDlcD0AJjdpiA.png)
 
+#### Çok Sınıflı Verinin DVM İle Sınıflandırılması
+Destek vektör makineleri daha çok iki sınıftan olusan (binary classification) veriyi ayırmada kullanılmaktadır. Buna karşın veriler bazen ikiden fazla sınıfa ait olabilirler bu gibi durumlarda temel DVM algoritması işlevsiz bir hale gelir.
+
+**Bire çok yaklaşım :**  Genel anlamda sınıf sayısı kadar DVM'nin birbirine füzyonuyla elde edilir. Her DVM çıkan her bir sınıfı diğer sınıflarla karşılaştırarak bir sonuca ulaşır. Eğer N kadar sınıf varsa N sayıda DVM eğitilerek bu DVM'lerin birbiriyle kıyaslanarak hangi sınıf için en güvenilir sonucun çıktığına bakılarak sınıflandırma yapılır.
+
+**Bire bir yaklaşım :** Bire bir yönteminde her bir sınıf ikilisi için farklı bir DVM eğitilir ve eğitilen DVM'lerden hangi sınıfın en çok "+1" olarak sınıflandırıldığına bakılır ve böylece sınıflandırma işlemi gerçekleştirilir. Bu yöntem bire çok yöntemine göre hesaplama gücü yönünden oldukça "pahalı" bir yöntemdir. Bunun sebebi, eğer N kadar sınıf varsa bu durumda  (N.(N-1))/2 sayıda DVM eğitilmesi gerekmesidir.
+
 ### DVM Avantajları
 * Yüksek boyutlu uzaylarda etkilidir.
 * Boyut sayısının örnek sayısından fazla olduğu durumlarda yine etkilidir.
@@ -101,7 +109,7 @@ problemler için uygundur.
 * RBF, radyal tabanlı fonksiyondur. Veriler hakkında önceden bilgi olmadığında kullanılır
 * Radyal çekirdek, sonsuz boyutlarda destek vektör sınıflandırıcısını bulur.
 * En yakın gözlemlerin yeni gözlemleri nasıl sınıflandıracağımız üzerinde çok fazla etkisi vardır ve daha uzaktaki gözlemlerin sınıflandırma üzerinde nispeten az etkisi vardır.
-> K(xi,xj) = exp(-γ||xi – xj||)$$^2$$
+> K(xi,xj) = exp(-γ||xi – xj||)^2
 3) Sigmoid Kernel Function
 * Esas olarak sinir ağlarında kullanılır.
 * Sigmoid çekirdek fonksiyonu birçok uygulamada iyi performans göstermektedir. Sigmoid çekirdeğinde α eğim ve c kesme sabiti olmak üzere iki ayarlanabilir parametresi vardır.
@@ -143,3 +151,4 @@ analizi ve modelleme işlemleri içinde kullanılmaktadır. Özellikle uydu gör
 * https://medium.com/deep-learning-turkiye/nedir-bu-destek-vekt%C3%B6r-makineleri-makine-%C3%B6%C4%9Frenmesi-serisi-2-94e576e4223e
 * https://www.youtube.com/watch?v=yW-lwgpqyIU
 * https://www.youtube.com/watch?v=efR1C6CvhmE&t=12s
+* https://techvidvan.com/tutorials/svm-kernel-functions/
